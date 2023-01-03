@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #009688;
+  --body-bg: #fbe9e7;
+  --footer-bg: #fff;
+  --footer-font: #333;
+  --symbol-color: #ff7043;
+  --symbol-dark: #f4511e;
+  --symbol-hover: #ff8a65;
+  --symbol-dark-hover: #ff8a65;
+  --header-color: #fff;
+  --slider-circle: black;
+}
+/* When data theme will be in  DARK mode.. */
+[data-theme='dark'] {
+  --primary-color: #333;
+  --footer-bg: black;
+  --symbol-color: transparent;
+  --symbol-hover: #ff5722;
+  --header-color: black;
+  --slider-circle: #fff;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+.grid {
+  display: grid;
+}
+
+/* Main Code Starts From Here..  */
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-color);
+  justify-content: center;
+  overflow: hidden;
+}
+
+.calculator {
+  grid-template-rows: 8% 25% auto;
+  width: 300px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.015);
+}
+
+.header {
+  justify-content: flex-end;
+  padding: 0 20px;
+  background-color: var(--header-color);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.body {
+  background-color: var(--body-bg);
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 20px;
+  text-align: right;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-content: space-around;
+  padding: 8px 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.footer div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--footer-font);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.footer div:hover {
+  background-color: #e5e5e5;
+}
+
+.symbol {
+  background-color: var(--symbol-color);
+  color: white !important;
+}
+.symbol-dark {
+  background-color: var(--symbol-dark);
+  color: #fff !important;
+}
+.footer div.symbol:hover {
+  background-color: var(--symbol-hover);
+}
+.footer div.symbol-dark:hover {
+  background-color: var(--symbol-dark-hover);
+}
+
+/* Toggle Switch.. */
+
+.theme-switch-container em {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 16px;
+  position: relative;
+  width: 50px;
+}
+.theme-switch input {
+  display: none;
+}
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: var(--slider-circle);
+  content: '';
+  bottom: -5px;
+  height: 26px;
+  right: 25px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
